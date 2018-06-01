@@ -35,40 +35,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private  void initusers() {
-
-
-        //Log.d("MainActivity", "initusers: sss");
-      //  sendRequestWithOkhttp();
-
-
-
-    }
-       /* users shanzha1 = new users(R.drawable.two,"山楂1号","天为什么是蓝的");
-        usersList.add(shanzha1);
-        users shanzha2 = new users(R.drawable.two,"山楂2号","你为何如此胖");
-        usersList.add(shanzha2);
-        users shanzha3 = new users(R.drawable.two,"山楂3号","天为什么是蓝的");
-        usersList.add(shanzha3);
-        users shanzha4 = new users(R.drawable.two,"山楂4号","你为何如此胖");
-        usersList.add(shanzha4);
-        users shanzha5 = new users(R.drawable.two,"山楂5号","天为什么是蓝的");
-        usersList.add(shanzha5);
-        users shanzha6 = new users(R.drawable.two,"山楂6号","你为何如此胖");
-        usersList.add(shanzha6);
-        users shanzha7 = new users(R.drawable.two,"山楂7号","天为什么是蓝的");
-        usersList.add(shanzha7);
-        users shanzha8 = new users(R.drawable.two,"山楂8号","你为何如此胖");
-        usersList.add(shanzha8);
-*/
-
         private void sendRequestWithOkhttp(){
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
                         OkHttpClient client = new OkHttpClient();
-                        Request request = new Request.Builder().url("http://10.0.2.2:8008/get_data2.json").build();
+                        Request request = new Request.Builder().url("http://10.0.2.2:8008/get_data3.json").build();
                         Response response = client.newCall(request).execute();
                         String responseData = response.body().string();
                         //  showResponse(responseData);
@@ -81,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }).start();
         }
 
-        private users shanzha[];
+        private users shanzha;
     private void parseJSONWithJSONObject(String jsonData) {
         try {
             JSONArray jsonArray = new JSONArray(jsonData);
