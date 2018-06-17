@@ -51,7 +51,7 @@ public   class userAdapter extends RecyclerView.Adapter<userAdapter.ViewHolder> 
                 users user = muserList.get(position);
               //  Toast.makeText(v.getContext(),"you clicked this ",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.baidu.com"));
+                intent.setData(Uri.parse("https://www.zhihu.com/question/28515516/answer/108661208\n"));
                 v.getContext().startActivity(intent);
             }
         });

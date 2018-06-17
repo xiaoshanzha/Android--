@@ -10,6 +10,7 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,15 +45,14 @@ public class MainActivity extends AppCompatActivity {
                         Request request = new Request.Builder().url("http://10.0.2.2:8008/get_data3.json").build();
                         Response response = client.newCall(request).execute();
                         String responseData = response.body().string();
-                        //  showResponse(responseData);
                         parseJSONWithJSONObject(responseData);
-                        //  parseJSONWithGSON(responseData);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             }).start();
         }
+
 
         private users shanzha;
     private void parseJSONWithJSONObject(String jsonData) {
@@ -63,12 +63,43 @@ public class MainActivity extends AppCompatActivity {
                 String name = jsonObject.getString("name");
                 String question = jsonObject.getString("question");
 
-                Log.d("MainActivity", "name is "+ name);
-                Log.d("MainActivity", "question is "+ question);
-                users shanzha=  new users(R.drawable.two,name,question);
-                usersList.add(shanzha);
-                shanzha = null;
 
+                if(i==0||i ==7)
+                {
+                    users shanzha=  new users(R.drawable.one,name,question);
+                    usersList.add(shanzha);
+                    shanzha = null;
+                }
+                else if(i==1||i==8)
+                {
+                    users shanzha=  new users(R.drawable.two,name,question);
+                    usersList.add(shanzha);
+                    shanzha = null;
+                }
+                else if(i==2||i==9)
+                {users shanzha=  new users(R.drawable.a,name,question);
+                    usersList.add(shanzha);
+                    shanzha = null;}
+                else if(i==3||i==10)
+                {
+                    users shanzha=  new users(R.drawable.b,name,question);
+                    usersList.add(shanzha);
+                    shanzha = null;}
+                else if(i==4||i==11)
+                {
+                    users shanzha=  new users(R.drawable.c,name,question);
+                    usersList.add(shanzha);
+                    shanzha = null;}
+                else if(i==5||i==12)
+                {
+                    users shanzha=  new users(R.drawable.d,name,question);
+                    usersList.add(shanzha);
+                    shanzha = null;}
+                else if(i==6||i==13)
+                {
+                    users shanzha=  new users(R.drawable.e,name,question);
+                    usersList.add(shanzha);
+                    shanzha = null;}
             }
         } catch (Exception e) {
             e.printStackTrace();
