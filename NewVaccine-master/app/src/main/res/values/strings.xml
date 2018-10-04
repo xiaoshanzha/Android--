@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">VaccineRemind</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="large_text">
+        "以下可设置为RecyclerView\n\n"
+
+        当前接种疫苗的注意事项显示/育儿知识推送\n\n\n\n\n
+
+
+
+
+
+
+        00\n
+
+        00\n
+
+        00\n
+    </string>
+    <string name="action_settings">Settings</string>
+
+</resources>

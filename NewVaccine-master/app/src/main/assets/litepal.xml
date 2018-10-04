@@ -1,0 +1,12 @@
+<litepal>
+<dbname value = "location"/>
+
+<version value = "3"/>
+
+<list>
+    <mapping class= "com.example.pokestar.vaccineremind.db.Baby"></mapping>
+    <mapping class= "com.example.pokestar.vaccineremind.db.City"></mapping>
+    <mapping class= "com.example.pokestar.vaccineremind.db.County"></mapping>
+    <mapping class= "com.example.pokestar.vaccineremind.db.Province"></mapping>
+</list>
+</litepal>
