@@ -14,27 +14,15 @@ import com.example.hp.register_login.MainActivity;
 import com.example.hp.register_login.R;
 import com.example.hp.register_login.bean.User;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -67,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
     private String id;
     private String password;
     private Button mButtonLogin;
-    private Button mButtonRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,61 +63,19 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mTextId = findViewById(R.id.login_id);
-        mTextPassword = findViewById(R.id.login_password);
+        mTextId = findViewById(R.id.l_id);
+        mTextPassword = findViewById(R.id.l_pw);
         mButtonLogin = findViewById(R.id.login);
-        mButtonRegister = findViewById(R.id.register);
 
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 id = mTextId.getText().toString().trim();
                 password = mTextPassword.getText().toString().trim();
-             //   SendByHttpClient(id,password);
                 sendRequestWithHttpURLConnecyion(id,password);
             }
         });
-        mButtonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
-            }
-        });
     }
-
-    private void SendByHttpClient(final String id, final String password) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                HttpClient httpclient = new DefaultHttpClient();
-                HttpPost httpPost = new HttpPost("http://192.168.137.1:8080/twoweb/SearchServlet");
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                params.add(new BasicNameValuePair("ID",id));
-                params.add(new BasicNameValuePair("PW",password));
-                try {
-                    final UrlEncodedFormEntity entity = new UrlEncodedFormEntity(params,"utf-8");
-                    httpPost.setEntity(entity);
-                    HttpResponse httpResponse = httpclient.execute(httpPost);
-                    if(httpResponse.getStatusLine().getStatusCode()==200)
-                    {
-                        HttpEntity entity1=httpResponse.getEntity();
-                        String response= EntityUtils.toString(entity1, "utf-8");
-                        Message message=new Message();
-                        message.what = SHOW_RESPONSE;
-                        message.obj=response;
-                        handler.sendMessage(message);
-                    }
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                } catch (ClientProtocolException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
     /*
     *使用HttpURLConnection访问网络：
     * 1.获取HttpURLConnection实例
@@ -145,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 HttpURLConnection connection = null;
                 BufferedReader reader = null;
                 try {
-                    URL url = new URL("http://192.168.137.1:8080/twoweb/SearchServlet");
+                    URL url = new URL("http://101.37.79.26:8080/twoweb/SearchServlet");
                     connection = (HttpURLConnection)url.openConnection();
                     connection.setRequestMethod("POST");
                     DataOutputStream out = new DataOutputStream(connection.getOutputStream());

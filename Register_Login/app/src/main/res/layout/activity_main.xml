@@ -8,13 +8,18 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
+            android:id="@+id/button_l"
             android:text="登陆"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_r"
+            android:text="注册"/>
         <Button
             android:id="@+id/delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="退出"
+            android:text="退出登陆"
             />
 
 </LinearLayout>

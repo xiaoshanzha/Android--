@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.example.hp.register_login.bean.User;
 import com.example.hp.register_login.ui.LoginActivity;
-import com.example.hp.register_login.ui.testActivity;
+import com.example.hp.register_login.ui.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,10 +19,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = (Button)findViewById(R.id.button);
+        Button button_l = (Button)findViewById(R.id.button_l);
+        Button button_r = (Button)findViewById(R.id.button_r);
         Button delete = (Button)findViewById(R.id.delete);
 
-        button.setOnClickListener(new View.OnClickListener() {
+
+        button_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(User.islogin){
@@ -31,8 +33,15 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
-                    finish();
                 }
+            }
+        });
+        button_r.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
