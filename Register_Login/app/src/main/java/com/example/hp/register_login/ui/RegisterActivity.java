@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                 HttpURLConnection connection = null;
                 BufferedReader reader = null;
                 try {
-                    URL url = new URL("http://localhost:8080/web/adduserServlet");
+                    URL url = new URL("http://101.37.79.26:8080/web/adduserServlet");
                     connection = (HttpURLConnection)url.openConnection();
                     connection.setRequestMethod("POST");
                     DataOutputStream out = new DataOutputStream(connection.getOutputStream());

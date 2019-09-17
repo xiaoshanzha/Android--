@@ -27,28 +27,7 @@ import java.net.URL;
 public class LoginActivity extends AppCompatActivity {
 
     public static final int SHOW_RESPONSE = 1;
-    public Handler handler=new Handler() {
-        public void handleMessage(Message msg)
-        {
-            switch (msg.what){
-                case SHOW_RESPONSE:
-                    String response=(String)msg.obj;
-                    if(response.equals("true")){
-                        User.islogin = true;
-                        User.isId = id;
-                        User.isPw = password;
-                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }else {
-                        Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
+
 
     private EditText mTextId;
     private EditText mTextPassword;
@@ -132,5 +111,28 @@ public class LoginActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+    public Handler handler=new Handler() {
+        public void handleMessage(Message msg)
+        {
+            switch (msg.what){
+                case SHOW_RESPONSE:
+                    String response=(String)msg.obj;
+                    if(response.equals("true")){
+                        User.islogin = true;
+                        User.isId = id;
+                        User.isPw = password;
+                        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }
 
