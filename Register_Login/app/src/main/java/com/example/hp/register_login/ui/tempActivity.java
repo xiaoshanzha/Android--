@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.example.hp.register_login.MainActivity;
 import com.example.hp.register_login.R;
 
+
+//文件选择器，获取本地图片的相对路径
 public class tempActivity extends AppCompatActivity {
 
     TextView tv;

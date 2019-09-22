@@ -6,17 +6,25 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.hp.register_login.Utils.GetAllShow;
 import com.example.hp.register_login.Utils.UploadFileTask;
+import com.example.hp.register_login.bean.Dyn;
 import com.example.hp.register_login.bean.User;
 import com.example.hp.register_login.ui.LoginActivity;
 import com.example.hp.register_login.ui.RegisterActivity;
 import com.example.hp.register_login.ui.ShowActivity;
 import com.example.hp.register_login.ui.tempActivity;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         Button upto = (Button)findViewById(R.id.up);
         Button path = (Button)findViewById(R.id.path);
         Button show = (Button)findViewById(R.id.show);
+        Button get = (Button)findViewById(R.id.get);
 
         int REQUEST_EXTERNAL_STORAGE = 1;
         String[] PERMISSIONS_STORAGE = {
@@ -122,6 +131,22 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, ShowActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        get.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GetAllShow getAllShow = new GetAllShow();
+                List<Dyn> list = getAllShow.getall();
+                for(int i = 0;i<list.size();i++){
+                    Log.e("dyn",list.get(i).user );
+                    Log.e("dyn",list.get(i).time );
+                    Log.e("dyn",list.get(i).laosao );
+                    Log.e("dyn",list.get(i).type );
+                    for(int j = 0;j < list.get(i).img_num;j++){
+                        Log.e("dyn",list.get(i).url.get(j) );
+                    }
+                }
             }
         });
     }
