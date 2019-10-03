@@ -1,14 +1,7 @@
 package com.example.hp.register_login.Utils;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.example.hp.register_login.MainActivity;
 import com.example.hp.register_login.bean.Dyn;
-import com.example.hp.register_login.ui.RegisterActivity;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,8 +39,8 @@ public class GetAllShow  {
                    while ((line = reader.readLine())!=null) {
                        Dyn dyn = new Dyn();
                        dyn.setUser(line);
-                       dyn.setTime(reader.readLine());
                        dyn.setLaosao(reader.readLine());
+                       dyn.setTime(reader.readLine());
                        dyn.setType(reader.readLine());
                        int num = reader.readLine().charAt(0) - '0';
                        dyn.setImg_num(num);
