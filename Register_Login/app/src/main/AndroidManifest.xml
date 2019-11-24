@@ -13,8 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ui.ShowActivity" />
-        <activity android:name=".ui.tempActivity" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +23,9 @@
         </activity>
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.RegisterActivity" />
+        <activity android:name=".ui.CSVActivity"/>
+        <activity android:name=".ui.ShowActivity" />
+        <activity android:name=".ui.tempActivity" />
     </application>
 
 </manifest>

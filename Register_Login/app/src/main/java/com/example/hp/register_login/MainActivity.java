@@ -15,6 +15,7 @@ import com.example.hp.register_login.Utils.GetAllShow;
 import com.example.hp.register_login.Utils.UploadFileTask;
 import com.example.hp.register_login.bean.Dyn;
 import com.example.hp.register_login.bean.User;
+import com.example.hp.register_login.ui.CSVActivity;
 import com.example.hp.register_login.ui.LoginActivity;
 import com.example.hp.register_login.ui.RegisterActivity;
 import com.example.hp.register_login.ui.ShowActivity;
@@ -91,10 +92,7 @@ public class MainActivity extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User.islogin = false;
-                User.isId = null;
-                User.isPw = null;
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, CSVActivity.class);
                 startActivity(intent);
                 finish();
             }
